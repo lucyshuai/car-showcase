@@ -1,0 +1,49 @@
+.details-contanier {
+  background: var(--background-color);
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  padding: 40px;
+  z-index: 99;
+  position: relative;
+}
+.title-root {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-weight: bold;
+}
+.border-line {
+  border-bottom: 1px solid #695e3e;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.title-de {
+  font-size: 16px;
+  color: #604113;
+  span {
+    padding: 0 10px;
+    color: #b77f03;
+  }
+}
+.p-2 {
+  font-size: 12px !important;
+  margin-bottom: 30px;
+}
+
+.car-img {
+  padding-top: 30px;
+  width: 300px;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .title-de {
+    font-size: 14px;
+  }
+}
+@media (max-width: 540px) {
+  .title-de {
+    font-size: 12px;
+  }
+}

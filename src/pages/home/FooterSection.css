@@ -1,0 +1,224 @@
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bottom_advertisment-img {
+  width: 66%;
+  height: 100%;
+}
+.asiaone_footer {
+  padding: 38px 0;
+}
+.footer-connect {
+  background-color: #200000;
+  width: 100%;
+  margin-top: 44px;
+  position: relative;
+}
+
+.footer-connect::before,
+.footer-connect::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+}
+
+.footer-connect::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #ff6d01 25%,
+    #7a2b11 25% 50%,
+    #610d0d 50% 75%,
+    #390000 75%
+  );
+}
+
+.footer-connect::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #ff6d01 25%,
+    #7a2b11 25% 50%,
+    #610d0d 50% 75%,
+    #390000 75%
+  );
+}
+
+.preference-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 238px;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  padding-bottom: 38px;
+}
+.infor-banner {
+  align-items: center;
+  height: 238px;
+  width: 500px;
+  background-color: #c38b0e;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-boder {
+  flex-grow: 1;
+  border-top-right-radius: 119px;
+  border-bottom-right-radius: 119px;
+  justify-content: flex-start;
+}
+
+.right-boder {
+  flex-grow: 1;
+  border-top-left-radius: 119px;
+  border-bottom-left-radius: 119px;
+  justify-content: flex-end;
+}
+.banner-list-right,
+.banner-list-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-list-right {
+  align-items: flex-start;
+}
+.banner-list-left {
+  align-items: flex-end;
+}
+
+.banner-title {
+  font-size: 20px;
+  color: var(--text-color-priamry);
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+.text-left,
+.text-right {
+  font-size: 14px;
+  color: var(--secondary-color-10);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.dot-left,
+.dot-right {
+  display: flex;
+  width: 8px;
+  height: 8px;
+  background-color: #dd9e14;
+  border-radius: 50%;
+}
+.dot-left {
+  margin-left: 8px;
+}
+.dot-right {
+  margin-right: 8px;
+}
+
+@media (max-width: 1025px) {
+  .preference-container {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .infor-banner {
+    width: 80%;
+    height: 100%;
+    background-color: rgba(195, 139, 14, 0.9);
+  }
+
+  .img-right-root,
+  .img-left-root {
+    width: 100%;
+  }
+
+  .img-right-root {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .left-boder {
+    justify-content: space-between;
+    border-top-right-radius: 180px;
+    border-bottom-right-radius: 180px;
+  }
+  .right-boder {
+    flex-grow: unset;
+    border-top-left-radius: 180px;
+    border-bottom-left-radius: 180px;
+  }
+  .banner-list-right {
+    width: 100%;
+    order: -1;
+    padding-top: 18px;
+    padding-left: 130px;
+  }
+  .banner-list-left {
+    width: 100%;
+    padding-top: 18px;
+    padding-right: 130px;
+  }
+
+  .banner-title {
+    font-size: 30px;
+  }
+  .text-left {
+    font-size: 16px;
+    text-align: end;
+  }
+  .text-right {
+    font-size: 16px;
+    text-align: start;
+  }
+  .asiaone_footer {
+    padding: unset;
+  }
+}
+/*特殊情况 */
+@media (max-width: 1024px) {
+  .banner-title {
+    font-size: 30px;
+  }
+  .text-left {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .banner-list-left {
+    width: 100%;
+    padding-top: 8px;
+    padding-right: 45px;
+  }
+  .banner-list-right {
+    width: 100%;
+    padding-top: 8px;
+    padding-left: 45px;
+  }
+  .right-container {
+    height: 220px;
+  }
+  .left-container {
+    height: 240px;
+  }
+  .bottom_advertisment-img {
+    width: 80%;
+  }
+  .banner-title {
+    font-size: 14px;
+  }
+  .text-left {
+    font-size: 10px;
+  }
+  .text-right {
+    font-size: 10px;
+  }
+}

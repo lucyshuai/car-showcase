@@ -1,0 +1,67 @@
+/* src/App.css */
+
+/* 基础样式（适用于所有设备） */
+.App {
+  text-align: center;
+  background-color: #e8e8e8;
+  font-family: "Visby FC", sans-serif;
+}
+.color-black-priamry {
+  color: var(--background-color);
+}
+.color-white-primary {
+  color: var(--text-color-priamry);
+}
+.color-yellow-primary {
+  color: var(--primary-color);
+}
+.color-yellow-second {
+  color: var(--secondary-color-10);
+}
+.color-yellow-second-deep {
+  color: #5b3f00;
+}
+.title-bold-yellow {
+  color: #c18500;
+}
+
+.paragraph {
+  font-size: 16px;
+  text-align: left;
+  padding: 0 0 16px 0;
+  width: 100%;
+}
+
+/* 桌面设备 */
+@media (min-width: 1025px) {
+  .car-card {
+    display: flex;
+    justify-content: space-between;
+  }
+  .row-width-80 {
+    width: 80%;
+  }
+  .p-b-16 {
+    padding-bottom: 16px;
+  }
+}
+
+/* H5  */
+@media (max-width: 1024px) {
+  .car-card {
+    display: flex;
+    justify-content: space-between;
+  }
+  .row-width-80 {
+    width: 90%;
+  }
+  .p-b-16 {
+    padding-bottom: 14px;
+  }
+}
+/*特殊情况 */
+@media (max-width: 540px) {
+  .paragraph {
+    font-size: 14px;
+  }
+}

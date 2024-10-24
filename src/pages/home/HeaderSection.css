@@ -1,0 +1,147 @@
+.header-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.header-section-title {
+  position: absolute;
+  z-index: 10;
+  color: var(--background-color);
+  font-size: 40px;
+  font-weight: bolder;
+  transform: translate(50%, 50%);
+  top: 10%;
+  display: flex;
+  right: 55%;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+
+.show-up-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 30px;
+  font-weight: bold;
+  z-index: 10;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  top: 100%;
+  left: 50%;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    width: 150px;
+    height: 150px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 20px;
+    width: 250px;
+    height: 250px;
+  }
+}
+.show-up-container.active {
+  animation: slideUp 0.4s linear 0s 1 both;
+}
+
+/* 动画关键帧 */
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, -50%) translateY(0);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+  }
+  to {
+    transform: translate(-50%, -50%) translateY(-55%);
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-color-priamry);
+  }
+}
+.show-up-text {
+  padding: 0 34px;
+  line-height: 1.2;
+}
+
+img.arrow-down-img {
+  padding-top: 58px;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: 768px) {
+    padding-top: 15px;
+    width: 30px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    padding-top: 25px;
+  }
+}
+img.arrow-down-img.active {
+  display: block;
+}
+
+.deep-img {
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+.masthead_fore-img {
+  left: 0;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+}
+.ring-img {
+  left: -6%;
+  width: 100%;
+  height: auto;
+  max-width: 117%;
+  max-height: 128%;
+  position: absolute;
+  z-index: 2;
+  top: -17%;
+}
+.masthead_fore-img {
+  top: 0;
+  z-index: 3;
+}
+
+.animated-yellow-circle {
+  position: absolute;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  animation: rotate 5s linear infinite;
+  left: 44%;
+  top: 47%;
+  opacity: 0.7;
+  max-width: 122%;
+  max-height: 129%;
+}
+/* 动画关键帧 */
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}

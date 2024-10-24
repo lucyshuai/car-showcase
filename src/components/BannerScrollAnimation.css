@@ -1,0 +1,88 @@
+.left-banner-container {
+  position: absolute;
+  width: 66%;
+  padding: 20px;
+  background-color: #a1781e;
+  text-align: center;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+  right: 100%; /* 初始位置在屏幕外 */
+  z-index: 1;
+  font-size: 40px;
+  color: var(--text-color-priamry);
+  bottom: -18px;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    padding: 10px;
+    font-size: 30px;
+  }
+}
+
+.left-banner-container.left-in {
+  transform: translateX(100%);
+}
+
+.right-banner-container {
+  position: absolute;
+  width: 67%;
+  padding: 46px 40px 33px 55px;
+  background-color: rgba(212, 166, 63, 0.9);
+  text-align: center;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  right: 0;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: start;
+  color: var(--secondary-color-10);
+  top: -18px;
+
+  @media (max-width: 768px) {
+    width: 76%;
+    font-size: 12px;
+    padding: 34px 28px 14px 26px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 76%;
+    font-size: 14px;
+    padding: 35px 40px 14px 26px;
+  }
+}
+
+.right-banner-container.right-in {
+  transform: translateX(0);
+}
+
+.right-container {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+
+  @media (max-width: 1025px) {
+    width: 100%;
+  }
+}
+.right-container.right-in {
+  transform: translateX(0);
+}
+
+.left-container {
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  @media (max-width: 1025px) {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: relative;
+    bottom: 17px;
+  }
+}
+.left-container.left-in {
+  transform: translateX(0);
+}

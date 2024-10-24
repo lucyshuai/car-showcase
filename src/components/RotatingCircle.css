@@ -1,0 +1,103 @@
+/* RotatingCircle.css */
+
+.ratating-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-10% + 100px));
+}
+.clock {
+  position: relative;
+  width: 200px; /* 时钟的宽度 */
+  height: 200px; /* 时钟的高度 */
+  border-radius: 50%; /* 圆形 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hour-hand {
+  width: 0;
+  position: absolute;
+  height: 60px; /* 时针的长度 */
+  background-color: white; /* 时针的颜色 */
+  top: 40px; /* 定位 */
+  left: 50%;
+  transform-origin: bottom; /* 设置旋转的基点 */
+  transition: transform 1s ease; /* 动画平滑过渡 */
+}
+.hour-hand::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-33%);
+}
+
+.hour-hand::after {
+  content: "";
+  position: absolute; /* 使虚线绝对定位 */
+  border-left: 4px dashed white; /* 虚线样式 */
+  height: 50px; /* 虚线的长度 */
+  left: 0; /* 左对齐 */
+}
+
+.minute-hand {
+  position: absolute;
+  height: 50px; /* 分针的长度 */
+  width: 0;
+  top: 20%;
+  left: 52%;
+  transform-origin: bottom; /* 设置旋转的基点 */
+  transition: transform 1s ease; /* 动画平滑过渡 */
+}
+.minute-hand::after {
+  content: "";
+  position: absolute; /* 使虚线绝对定位 */
+  border-left: 4px dashed white;
+  height: 50px; /* 虚线的长度 */
+}
+
+/* .minute-hand::before {
+  content: "";
+  position: absolute;
+  background-color: #656f7f;
+  width: 200px;
+  height: 200px;
+  top: -200px;
+  right: -100px;
+  border-radius: 50%;
+  transition: background-color 0.5s ease, width 0.5s ease, height 0.5s ease; 
+} */
+
+.minute-hand.active {
+  animation: rotateMinute 0.5s linear forwards;
+}
+.minute-dot {
+  content: "";
+  position: absolute;
+  background-color: #656f7f; /* 圆点颜色 */
+  width: 200px; /* 圆点宽度 */
+  height: 200px; /* 圆点高度 */
+  top: -200px; /* 垂直位置 */
+  left: 50%; /* 水平居中 */
+  transform: translateX(-50%); /* 水平居中对齐 */
+  border-radius: 50%; /* 圆形 */
+  transition: background-color 0.5s ease, width 0.5s ease, height 0.5s ease; /* 过渡效果 */
+}
+@keyframes rotateMinute {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(150deg);
+  }
+}

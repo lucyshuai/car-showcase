@@ -1,0 +1,6 @@
+.banner-animation-box {
+  display: flex;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}

@@ -1,0 +1,45 @@
+.video-contanier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px 200px;
+  background: var(--background-color);
+}
+.video-root {
+  padding-bottom: 13px;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+}
+.video-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.d-car-animation {
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 68px;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+  left: 0;
+}
+.move-in {
+  transform: translateX(70%);
+}
+
+.progress-img {
+}
+
+@media (max-width: 768px) {
+  .move-in {
+    transform: translateX(45%);
+  }
+  .progress-img {
+    max-height: 80px;
+  }
+}

@@ -1,0 +1,31 @@
+.scroll-animation-container {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+}
+.grey-circle {
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100px; /* 初始位置在视图下方 */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: bottom 1s ease-out; /* 圆形的出现动画 */
+}
+
+/* 当圆形可见时，开始从底部出现 */
+.grey-circle.visible {
+  bottom: 50px; /* 圆形从底部向上移动 */
+}
+
+/* 当圆形固定时，停留在页面中间 */
+.grey-circle.fixed {
+  position: fixed;
+  top: 50%; /* 固定在视图中间 */
+  bottom: auto;
+  transform: translate(-50%, -50%);
+}
