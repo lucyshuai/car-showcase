@@ -32,10 +32,7 @@
   transform: translateX(70%);
 }
 
-.progress-img {
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .move-in {
     transform: translateX(45%);
   }

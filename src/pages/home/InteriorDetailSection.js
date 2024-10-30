@@ -3,11 +3,14 @@ import "./InteriorDetailSection.css";
 import BannerScrollAnimation from "../../components/BannerScrollAnimation";
 import { INTERIOR_SECTION_DATA } from "../../mockdata/mockData";
 import useVisibility from "../../hooks/useVisibility";
+import RotatingCircle from "../../components/RotatingCircle";
 
 export default function InteriorDetailSection() {
   const grayBox1 = useVisibility();
   const grayBox2 = useVisibility();
-  const globalTitle = useVisibility();
+  const globalTitle = useVisibility(0.5, true);
+  const rotatingCircle1 = useVisibility();
+  const rotatingCircle2 = useVisibility();
 
   return (
     <div className='interior-container'>
@@ -28,11 +31,18 @@ export default function InteriorDetailSection() {
           src='/assets/parallax_interior1.png'
           alt=''
           className='interior1-img'
+          ref={rotatingCircle1.ref}
         />
         <div className={`gray-box ${grayBox1.isVisible ? "active" : ""}`}>
           {INTERIOR_SECTION_DATA.boxDataOne.map((e, index) => (
             <div key={index}>{e}</div>
           ))}
+        </div>
+        <div className='inter-rota-1'>
+          <RotatingCircle
+            rightDown={true}
+            isVisible={rotatingCircle1.isVisible}
+          />
         </div>
       </div>
 
@@ -48,7 +58,14 @@ export default function InteriorDetailSection() {
           src='/assets/parallax_interior2.png'
           alt=''
           className='interior2-img'
+          ref={rotatingCircle2.ref}
         />
+        <div className='inter-rota-2'>
+          <RotatingCircle
+            rightUp={true}
+            isVisible={rotatingCircle2.isVisible}
+          />
+        </div>
       </div>
     </div>
   );

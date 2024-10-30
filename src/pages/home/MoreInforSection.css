@@ -9,13 +9,35 @@
 .text-bold {
   font-weight: bolder;
 }
-
+.position-r {
+  position: relative;
+}
+.more-infor-box-right,
+.more-infor-box-left {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    .yellow-c-img {
+      background-image: url("/public/assets/masthead_ring.svg");
+      opacity: 1;
+    }
+  }
+}
 .more-img-container {
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 36px;
+}
+.more-img-root {
+  width: 100%;
 }
 .imgs-container {
   display: flex;
@@ -24,25 +46,86 @@
   flex-direction: row;
   gap: 36px;
 }
+.c-img {
+  display: flex;
+  order: 1;
+  width: 225px;
+  height: 225px;
+  cursor: pointer;
+  position: absolute;
+  transition: border-radius 0.3s ease;
+  z-index: -1;
+}
+
 .img {
   display: flex;
   order: 1;
-  width: 238px;
-  height: 238px;
+  width: 235px;
+  height: 235px;
+  cursor: pointer;
+  transition: border-radius 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .more-section-container {
-    padding: 100px 40px 30px;
-    gap: 34px;
+.yellow-c-img {
+  display: flex;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 250px;
+  height: 250px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease; /* 过渡效果 */
+}
+
+.left-rotating-root {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  z-index: 9;
+}
+
+.right-rotating-root {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  z-index: 9;
+}
+
+@media (max-width: 1024px) {
+  .more-img-container {
+    gap: 38px;
+    width: 100%;
   }
   .imgs-container {
+    flex-direction: column;
+  }
+  .more-section-container {
+    padding: 100px 40px 30px;
     gap: 26px;
+  }
+  .imgs-container {
+    gap: 44px;
     flex-direction: column;
   }
   .img {
     width: 200px;
     height: 200px;
+  }
+  .c-img {
+    width: 180px;
+    height: 180px;
+  }
+  .yellow-c-img {
+    width: 204px;
+    height: 204px;
+  }
+  .more-infor-box-right {
+    left: 45%;
+  }
+  .more-infor-box-left {
+    right: 45%;
   }
 }
 
@@ -50,5 +133,24 @@
   .img {
     width: 100px;
     height: 100px;
+  }
+
+  .left-rotating-root {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    z-index: 9;
+  }
+
+  .right-rotating-root {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    z-index: 9;
+  }
+
+  .yellow-c-img {
+    width: 204px;
+    height: 204px;
   }
 }

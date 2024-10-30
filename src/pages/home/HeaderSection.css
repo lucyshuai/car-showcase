@@ -15,7 +15,7 @@
   display: flex;
   right: 55%;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     font-size: 14px;
   }
 }
@@ -37,7 +37,7 @@
   top: 100%;
   left: 50%;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     font-size: 14px;
     width: 150px;
     height: 150px;
@@ -78,7 +78,7 @@ img.arrow-down-img {
   cursor: pointer;
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding-top: 15px;
     width: 30px;
   }

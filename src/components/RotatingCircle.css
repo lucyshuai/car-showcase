@@ -1,23 +1,148 @@
 /* RotatingCircle.css */
 
 .ratating-container {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, calc(-10% + 100px));
 }
-.clock {
+
+.ratating-root {
   position: relative;
-  width: 200px; /* 时钟的宽度 */
-  height: 200px; /* 时钟的高度 */
-  border-radius: 50%; /* 圆形 */
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.ratating-root.active {
+  opacity: 1;
+}
+
+/*left  position */
+.left-up-hour-hand,
+.left-down-hour-hand {
+  width: 0;
+  position: absolute;
+  height: 60px;
+  background-color: white;
+  top: 40px;
+  right: 50%;
+  transform-origin: bottom;
+  transition: transform 1s ease;
+}
+.left-down-hour-hand::before,
+.left-up-hour-hand::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  top: -10px;
+  right: 50%;
+  transform: translateX(33%);
+}
+.left-down-hour-hand::after,
+.left-up-hour-hand::after {
+  content: "";
+  position: absolute;
+  border-left: 2px dashed white;
+  height: 86px;
+  transform: rotate(-90deg) translateX(48px) translateY(-50%);
+}
+
+.left-down-minute-hand,
+.left-up-minute-hand {
+  position: absolute;
+  height: 50px;
+  width: 0;
+  top: -7%;
+  right: 96%;
+  transform-origin: bottom;
+  transition: transform 1s ease;
+}
+.left-down-minute-hand::after,
+.left-up-minute-hand::after {
+  content: "";
+  position: absolute;
+  border-left: 2px dashed white;
+  height: 50px;
+}
+
+.left-down-minute-hand.active {
+  animation: rotateMinuteLeftDown 0.5s linear forwards;
+}
+
+.left-up-minute-hand.active {
+  animation: rotateMinuteLeftUp 0.5s linear forwards;
+}
+
+/*right  position */
+.right-down-hour-hand,
+.right-up-hour-hand {
+  width: 0;
+  position: absolute;
+  height: 60px;
+  background-color: white;
+  top: 40px;
+  left: 50%;
+  transform-origin: bottom;
+  transition: transform 1s ease; /* 动画平滑过渡 */
+}
+.right-down-hour-hand::before,
+.right-up-hour-hand::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-33%);
+}
+.right-down-hour-hand::after,
+.right-up-hour-hand::after {
+  content: "";
+  position: absolute;
+  border-left: 2px dashed white;
+  height: 80px;
+  transform: rotate(-90deg) translateX(45px) translateY(50%);
+}
+
+.right-down-minute-hand,
+.right-up-minute-hand {
+  position: absolute;
+  height: 50px;
+  width: 0;
+  top: -8%;
+  left: 95%;
+  transform-origin: bottom;
+  transition: transform 1s ease;
+}
+.right-up-minute-hand {
+  transform: rotate(-45deg);
+}
+
+.right-down-minute-hand::after,
+.right-up-minute-hand::after {
+  content: "";
+  position: absolute; /* 使虚线绝对定位 */
+  border-left: 2px dashed white;
+  height: 50px; /* 虚线的长度 */
+}
+
+.right-down-minute-hand.active {
+  animation: rotateMinuteDown 0.5s linear forwards;
+}
+
+.right-up-minute-hand.active {
+  animation: rotateMinuteUp 0.5s linear forwards;
 }
 
 .hour-hand {
@@ -52,7 +177,7 @@
 
 .minute-hand {
   position: absolute;
-  height: 50px; /* 分针的长度 */
+  height: 50px;
   width: 0;
   top: 20%;
   left: 52%;
@@ -66,38 +191,133 @@
   height: 50px; /* 虚线的长度 */
 }
 
-/* .minute-hand::before {
-  content: "";
-  position: absolute;
-  background-color: #656f7f;
-  width: 200px;
-  height: 200px;
-  top: -200px;
-  right: -100px;
-  border-radius: 50%;
-  transition: background-color 0.5s ease, width 0.5s ease, height 0.5s ease; 
-} */
-
 .minute-hand.active {
   animation: rotateMinute 0.5s linear forwards;
 }
-.minute-dot {
-  content: "";
+.content-wrapper {
   position: absolute;
-  background-color: #656f7f; /* 圆点颜色 */
-  width: 200px; /* 圆点宽度 */
-  height: 200px; /* 圆点高度 */
-  top: -200px; /* 垂直位置 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 80%;
+  font-size: 12px;
+  text-align: center;
+
+  @media (max-width: 430px) {
+    font-size: 9px;
+  }
+}
+.content-wrapper.r-d {
+  transform: translate(0%, 0%) rotate(-150deg);
+}
+.content-wrapper.r-u {
+  transform: translate(0%, 0%) rotate(-60deg);
+}
+.content-wrapper.l-d {
+  transform: translate(0%, 0%) rotate(150deg);
+}
+.content-wrapper.l-u {
+  transform: translate(0%, 0%) rotate(60deg);
+}
+
+.minute-dot {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  width: 180px; /* 圆点宽度 */
+  height: 180px; /* 圆点高度 */
+  top: -180px; /* 垂直位置 */
   left: 50%; /* 水平居中 */
   transform: translateX(-50%); /* 水平居中对齐 */
   border-radius: 50%; /* 圆形 */
   transition: background-color 0.5s ease, width 0.5s ease, height 0.5s ease; /* 过渡效果 */
+
+  @media (max-width: 430px) {
+    width: 135px;
+    height: 135px;
+    top: -135px;
+  }
 }
-@keyframes rotateMinute {
+
+.minute-dot.active {
+  animation: minuteDotShow 0.4s linear 0s 1 both;
+}
+
+/* 动画关键帧 */
+@keyframes minuteDotShow {
+  from {
+    /* transform: translate(0%, 0%) translateY(0); */
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+  }
+  to {
+    /* transform: translate(0%, 0%) translateY(-100%); */
+    opacity: 1;
+    background-color: #656f7f;
+    color: var(--text-color-priamry);
+  }
+}
+
+@keyframes rotateMinuteDown {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(150deg);
+  }
+}
+
+@keyframes rotateMinuteUp {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes rotateMinuteLeftDown {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-150deg);
+  }
+}
+
+@keyframes rotateMinuteLeftUp {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-60deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .left-down-hour-hand::after,
+  .left-up-hour-hand::after {
+    height: 50px;
+    transform: rotate(-90deg) translateX(30px) translateY(-50%);
+  }
+  .right-down-hour-hand::after,
+  .right-up-hour-hand::after {
+    height: 50px;
+    transform: rotate(-90deg) translateX(30px) translateY(50%);
+  }
+  .left-up-hour-hand {
+    right: 70%;
+  }
+  .right-up-hour-hand {
+    left: 66%;
+  }
+  .right-down-minute-hand {
+    height: 50px;
+    left: 79%;
   }
 }

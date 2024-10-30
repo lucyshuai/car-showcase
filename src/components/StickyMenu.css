@@ -21,6 +21,10 @@
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
+.menu-icon.show {
+  width: 100%;
+  padding-right: 8px;
+}
 
 .menu-items {
   display: flex;
@@ -58,4 +62,51 @@
 
 .icon:hover {
   width: 33px;
+}
+
+@media (max-width: 1024px) {
+  .menu-container {
+    flex-direction: row;
+  }
+  .menu-icon {
+    order: -1;
+    flex-direction: row;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: unset;
+    margin-top: unset;
+    margin-right: 3px;
+    min-width: 45px;
+    width: 45px;
+  }
+  .menu-items {
+    flex-direction: row;
+    display: none;
+  }
+  .arrow-up-icon,
+  .share-icon {
+    padding: 12px 8px 12px;
+    height: 19px;
+    width: 19px;
+  }
+  .arrow-up-icon {
+    order: -1;
+  }
+  .menu-hamburger {
+    padding: 9px;
+    max-height: 30px;
+  }
+  .menu-items.show {
+    display: flex;
+    max-width: 300px;
+    height: 27px;
+    gap: 10px;
+    padding: unset;
+  }
+  .icon {
+    width: 20px;
+  }
+  .icon:hover {
+    width: 23px;
+  }
 }

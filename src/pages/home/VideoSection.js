@@ -5,8 +5,8 @@ import BannerScrollAnimation from "../../components/BannerScrollAnimation";
 import useVisibility from "../../hooks/useVisibility";
 export default function VideoSection() {
   const textData = VIDEO_DATA["en_US"] ?? {};
-  const banner = useVisibility();
-  const carAnimation = useVisibility();
+  const banner = useVisibility(0.5, true);
+  const carAnimation = useVisibility(0.5, true);
 
   return (
     <div className='video-section'>

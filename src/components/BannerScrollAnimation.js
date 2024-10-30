@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./BannerScrollAnimation.css";
 
 /**
@@ -6,8 +6,8 @@ import "./BannerScrollAnimation.css";
  * @param contents //component
  * @param data // component data
  * @param isVisible // animation is visible
- * @param leftIn // left box position
- * @param rightIn // right box position
+ * @param leftIn
+ * @param rightIn
  * @returns
  */
 
@@ -40,12 +40,12 @@ export default function BannerScrollAnimation({
         >
           {data}
         </div>
-      ) : !isRightIn && contents ? (
+      ) : isRightIn && contents ? (
         <div className={`right-container ${isVisible ? " right-in " : ""}`}>
           {contents}
         </div>
-      ) : !isLeftIn && contents ? (
-        <div className={`left-container ${isVisible ? " left-in " : ""}`}>
+      ) : isLeftIn && contents ? (
+        <div className={`left-container ${isVisible ? " left-in " : ""} `}>
           {contents}
         </div>
       ) : (

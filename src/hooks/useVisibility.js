@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const useVisibility = (threshold = 0.5) => {
+const useVisibility = (threshold = 0.5, move = false) => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -11,7 +11,9 @@ const useVisibility = (threshold = 0.5) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
           } else {
-            setIsVisible(false);
+            if (move) {
+              setIsVisible(false);
+            }
           }
         });
       },
@@ -27,7 +29,7 @@ const useVisibility = (threshold = 0.5) => {
         observer.unobserve(ref.current);
       }
     };
-  }, [threshold]);
+  }, [threshold, move]);
 
   return { ref, isVisible };
 };

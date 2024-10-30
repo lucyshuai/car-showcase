@@ -9,6 +9,40 @@ export const DETAIL_DATA = {
     "Yes, it goes fast, attracts attention, and takes a big chunk out of your savings. In SL55 form, it is the first brand-new SL in Singapore that costs over $1 million ($1,002,888 to be exact), its price inflated by the heftier taxes levied on super-luxury cars.",
     "Price tag and vehicle dynamics are just the tip of the iceberg, though. It is no ordinary sports car, for the SL's true purpose is to refresh a petrolhead's soul.",
   ],
+  carsInformation: {
+    img1: {
+      src: "/assets/carousel-1.png",
+      data: "The wide bonnet and low, aggressive stance hints at the SL's capabilities.",
+      rightUp: true,
+      rightDown: false,
+      leftDown: false,
+      leftUp: false,
+    },
+    img2: {
+      src: "/assets/carousel-2.png",
+      data: "You won't always see the quad exhaust tips, but you'll definitely hear their symphony",
+      leftDown: true,
+      leftUp: false,
+      rightDown: false,
+      rightUp: false,
+    },
+    img3: {
+      src: "/assets/carousel-3.png",
+      data: "Red brake callipers draw your attentionto the large cross drilled rotors peering out behind the 21 inch wheels.",
+      leftUp: true,
+      leftDown: false,
+      rightDown: false,
+      rightUp: false,
+    },
+    img4: {
+      src: "/assets/carousel-4.png",
+      data: "The SL's dual nature enables it to be a cruiser when you're chilling, or a bruiser when you're feeling fiery.",
+      rightDown: true,
+      rightUp: false,
+      leftUp: false,
+      leftDown: false,
+    },
+  },
 };
 
 /**

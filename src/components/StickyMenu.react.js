@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./StickyMenu.css";
+import useIsMobile from "../hooks/useIsMobile";
+
 /**
  *
  * 顶部菜单
@@ -7,7 +9,7 @@ import "./StickyMenu.css";
 export default function StickyMenu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-
+  const isH5 = useIsMobile();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -37,7 +39,10 @@ export default function StickyMenu() {
           alt=''
         />
       </div>
-      <div className='menu-icon' onClick={toggleMenu}>
+      <div
+        className={`menu-icon ${isMenuOpen && isH5 ? "show" : ""}`}
+        onClick={toggleMenu}
+      >
         <div className={`menu-items ${isMenuOpen ? "show" : ""}`}>
           <a
             href='https://whatsapp.com'
@@ -94,7 +99,11 @@ export default function StickyMenu() {
         {isMenuOpen ? (
           <img
             className='arrow-up-icon'
-            src='/assets/nav-arrow-up.svg'
+            src={` ${
+              isH5
+                ? "/assets/carousel-arrow-right.svg"
+                : "/assets/nav-arrow-up.svg"
+            }`}
             alt=''
           />
         ) : (
